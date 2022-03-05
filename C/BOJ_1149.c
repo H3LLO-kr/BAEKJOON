@@ -1,25 +1,21 @@
 #include <stdio.h>
+#define min(n1, n2) (n1 < n2 ? n1 : n2)
 
 int	main(void)
 {
 	int	N;
 	int	arr_input[3];
-	int	arr[3] = {};
-	int min;
+	int	arr[3] = { 0, };
+	int	min;
 
 	scanf("%d", &N);
 	for (int i = 0; i < N; i++)
 	{
 		for (int j = 0; j < 3; j++)
 			scanf("%d", arr_input + j);
-		for (int j = 0; j < 3; j++)
-		{
-			min = 1000;
-			for (int k = 0; k < 3; k++)
-				if (k != j && arr[k] < min)
-					min = arr[k];
-			arr_input[j] += min;
-		}
+		arr_input[0] += min(arr[1], arr[2]);
+		arr_input[1] += min(arr[0], arr[2]);
+		arr_input[2] += min(arr[0], arr[1]);
 		for (int j = 0; j < 3; j++)
 			arr[j] = arr_input[j];
 	}
