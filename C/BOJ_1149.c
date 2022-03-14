@@ -27,5 +27,5 @@ int	main(void)
 	for (int i = 0; i < 3; i++)
 		if (arr[i] < min)
 			min = arr[i];
-	printf("%d\n", min);
+	printf("%d", min);
 }
